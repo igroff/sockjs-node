@@ -130,9 +130,10 @@ class Session
         @connection.protocol = @recv.protocol
 
         headers = {}
-        for key in ['referer', 'x-client-ip', 'x-forwarded-for', \
-                    'x-cluster-client-ip', 'via', 'x-real-ip', 'host', \
-                    'user-agent', 'accept-language']
+        # This was filtering the headers form the request, but we really want them
+        # to come through, as it was building a new headers object we'll keep the same 
+        # paradigm
+        for key in Object.keys(req.headers)
             headers[key] = req.headers[key] if req.headers[key]
         if headers
             @connection.headers = headers
