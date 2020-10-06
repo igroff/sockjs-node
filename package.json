@@ -19,5 +19,5 @@
   "devDependencies": {
     "coffee-script": "1.11.0"
   },
-  "main": "index"
+  "main": "index.js"
 }
